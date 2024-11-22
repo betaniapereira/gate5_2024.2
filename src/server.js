@@ -6,8 +6,6 @@ const AuthController = require('./controllers/AuthController'); // Importe o Aut
 
 const api = express();
 
-// Middleware para parsing de JSON
-api.use(express.json());
 
 // Configurar CORS para permitir a origem correta
 api.use(cors({
@@ -24,7 +22,7 @@ api.use((req, res, next) => {
 });
 
 api.get('/', (req, res) => {
-    return res.status(200).json("Server running at: " + new Date())
+    res.redirect('/login.html')
 })
 
 // Rota de autenticação - Login
