@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
       {
-        name: "inaed",
+        name: "agradef_api",
         script: "npm start",
       },
     ],
