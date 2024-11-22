@@ -7,8 +7,9 @@ const path = require("path")
 
 const api = express();
 
-
 api.use(express.static(path.join(__dirname, 'public')));
+
+api.use(express.json())
 
 // Configurar CORS para permitir a origem correta
 api.use(cors({
