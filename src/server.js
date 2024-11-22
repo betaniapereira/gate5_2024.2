@@ -1,8 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const router = require('./src/routers/routers'); // Suas outras rotas
-const AuthController = require('../pj_apiusers/src/controllers/AuthController'); // Importe o AuthController
+const router = require('./routers/routers'); // Suas outras rotas
+const AuthController = require('./controllers/AuthController'); // Importe o AuthController
 
 const api = express();
 
