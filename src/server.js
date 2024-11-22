@@ -23,6 +23,10 @@ api.use((req, res, next) => {
     next();
 });
 
+api.get('/', (req, res) => {
+    return res.status(200).json("Server running at: " + new Date())
+})
+
 // Rota de autenticação - Login
 api.post('/api/login', AuthController.login);
 
