@@ -3,9 +3,12 @@ const express = require('express');
 const cors = require('cors');
 const router = require('./routers/routers'); // Suas outras rotas
 const AuthController = require('./controllers/AuthController'); // Importe o AuthController
+const path = require("path")
 
 const api = express();
 
+
+api.use(express.static(path.join(__dirname, 'public')));
 
 // Configurar CORS para permitir a origem correta
 api.use(cors({
