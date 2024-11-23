@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const UsersController = require('../controllers/UsersController'); 
 const AuthController = require('../controllers/AuthController');
+const cadastroRoutes = require('./CadastroRoutes');
 const verificarAutenticacao = require('../middleware/authMiddleware');  
 
 // Rota para criar um novo usuário
@@ -27,5 +28,7 @@ router.put('/user/:id', verificarAutenticacao, UsersController.updateUser);
 
 // Rota para deletar um usuário específico pelo ID (protegida)
 router.delete('/user/:id', verificarAutenticacao, UsersController.deleteUser);
+
+router.use('/cadastro', cadastroRoutes)
 
 module.exports = router;
