@@ -10,6 +10,8 @@ class AuthController {
     async login(req, res) {
         const { email, password } = req.body;
 
+        console.log(email)
+
         // Usuário fixo para teste
         const fixedUser = {
             email: 'luisfelicio23@gmail.com',
