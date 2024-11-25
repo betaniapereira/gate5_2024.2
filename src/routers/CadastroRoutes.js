@@ -4,4 +4,4 @@ const CadastroController = require('../controllers/CadastroController.js');
 
 router.post('/', CadastroController.create);
 
-module.exports = router;
+module.exports = kokdokeoefkmoem
