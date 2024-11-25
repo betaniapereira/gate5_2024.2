@@ -29,6 +29,6 @@ router.put('/user/:id', verificarAutenticacao, UsersController.updateUser);
 // Rota para deletar um usuário específico pelo ID (protegida)
 router.delete('/user/:id', verificarAutenticacao, UsersController.deleteUser);
 
-router.use('/cadastro', cadastroRoutes)
+router.use('/cadastro', cadastroRoutes);
 
 module.exports = router;
