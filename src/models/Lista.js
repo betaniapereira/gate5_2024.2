@@ -40,5 +40,5 @@ app.get('/usuarios', async (req, res) => {
 });
 
 // Servidor rodando
-const PORT = 3000;
+const PORT = 4041;
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
