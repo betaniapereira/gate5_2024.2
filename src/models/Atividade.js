@@ -1,6 +1,6 @@
 const knex = require('../data/conection');
 
-class Atividade {
+class atividade {
     async new(nome, descricao, data, userId) {
         try {
             await knex.insert({

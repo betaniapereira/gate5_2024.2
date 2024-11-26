@@ -1,9 +1,18 @@
 const knex = require('../data/conection');
 
-class Atividade {
-    async create() {
+class Cadastro {
+    async create(NOME, ANO, ENDERECO, FELIACAOPAI, FELIACAOMAE, RESPONSAVEL, TELEFONERESPONSAVEL, DATA_MODIFICACAO) {
         try {
-            
+            await knex.insert({
+                nome: NOME,
+                nascimento: ANO,
+                endereco: ENDERECO,
+                pai: FELIACAOPAI,
+                mae: FELIACAOMAE,
+                responsavel: RESPONSAVEL,
+                telefone: TELEFONERESPONSAVEL,
+                modificacao: DATA_MODIFICACAO
+            }).table('cadastro');
 
             return 200;
         } catch (error) {
@@ -12,7 +21,7 @@ class Atividade {
         }
     }
 
-    async findByUserId(userId) {
+    async findByUserId(idCADASTRO) {
         try {
             
         } catch (error) {
@@ -22,4 +31,4 @@ class Atividade {
     }
 }
 
-module.exports = new Atividade();
+module.exports = new cadastro();
