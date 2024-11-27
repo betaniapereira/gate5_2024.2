@@ -1,4 +1,4 @@
-const knex = require('../data/conection');
+//const knex = require('../data/conection');
 
 class Cadastro {
     async create(NOME, ANO, ENDERECO, FELIACAOPAI, FELIACAOMAE, RESPONSAVEL, TELEFONERESPONSAVEL, DATA_MODIFICACAO) {
