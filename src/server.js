@@ -35,8 +35,13 @@ api.get('/', (req, res) => {
     res.redirect('/login.html');
 });
 
+api.get('/', (req, res) => {
+    res.redirect('/cadastro.html');
+});
+
 // Rotas de autenticação
 api.post('/login', AuthController.login); // Rota para login
+api.post('/usuario', AuthController.usuario); // Rota para login
 api.post('/request-password-reset', AuthController.requestPasswordReset); // Solicitar redefinição de senha
 api.post('/reset-password', AuthController.resetPassword); // Redefinir senha
 
