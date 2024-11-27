@@ -1,16 +1,14 @@
-// AuthController.js
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
-// Remova a linha do knex, pois não estamos usando o banco de dados para este teste
 
 class AuthController {
     // Método de login com dados fixos para teste
     async login(req, res) {
         const { email, password } = req.body;
 
-        console.log(email)
+        console.log(email);
 
         // Usuário fixo para teste
         const fixedUser = {
@@ -31,6 +29,7 @@ class AuthController {
             }
 
             // Gera um token JWT com informações fixas
+            console.log("JWT_SECRET: ", process.env.JWT_SECRET);  // Verificando se o JWT_SECRET está sendo lido corretamente
             const token = jwt.sign(
                 { id: 1, email: fixedUser.email }, // ID fictício
                 process.env.JWT_SECRET,             // Chave secreta do .env
@@ -44,6 +43,7 @@ class AuthController {
         }
     }
 
+    // Método para solicitar redefinição de senha
     async requestPasswordReset(req, res) {
         const { email } = req.body;
         try {
@@ -81,6 +81,7 @@ class AuthController {
         }
     }
 
+    // Método para redefinir a senha
     async resetPassword(req, res) {
         const { resetToken, newPassword } = req.body;
         try {
