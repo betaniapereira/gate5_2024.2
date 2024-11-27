@@ -581,11 +581,10 @@ button:hover {
 // Array de objetos para os usuários
 const users = [
 
-      { name: NOME, status: "ativo" },
-      { name: "nome do banco", status: "ativo" },
-      { name: "nome do banco", status: "ativo" },
-      { name: "nome do banco", status: "inativo" }
+      { name: NOME, status: status_do_banco },
     ];
+
+    console.log(users);
 
     // Função para renderizar os usuários na tabela
     function renderUserTable() {
