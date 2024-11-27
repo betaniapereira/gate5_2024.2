@@ -1,49 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<script>
-  // URL do endpoint no servidor Node.js
-  const API_URL = 'ec2-3-21-237-200.us-east-2.compute.amazonaws.com';
-
-  // Função para buscar usuários
-  async function fetchUsuarios() {
-    try {
-      const response = await fetch(API_URL);
-      if (!response.ok) throw new Error('Erro ao buscar usuários.');
-
-      const usuarios = await response.json();
-
-      // Renderiza os usuários no HTML
-      renderUsuarios(usuarios);
-    } catch (error) {
-      console.error('Erro:', error);
-    }
-  }
-
-  // Função para renderizar os usuários na tabela
-  function renderUsuarios(usuarios) {
-    const userTable = document.getElementById('user-table');
-    userTable.innerHTML = ''; // Limpa a tabela antes de renderizar
-
-    usuarios.forEach(usuario => {
-      const userRow = document.createElement('div');
-      userRow.classList.add('user-row');
-
-      userRow.innerHTML = `
-        <span>${usuario.name}</span>
-        <span class="status ativo">Ativo</span>
-        <button onclick="alert('Usuário: ${usuario.name}')">Ver</button>
-      `;
-
-      userTable.appendChild(userRow);
-    });
-  }
-
-  // Chama a função ao carregar a página
-  document.addEventListener('DOMContentLoaded', fetchUsuarios);
-</script>
-
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -695,5 +652,49 @@ const users = [
 
 
   </script>
+
+<script>
+  // URL do endpoint no servidor Node.js
+  const API_URL = 'ec2-3-21-237-200.us-east-2.compute.amazonaws.com';
+
+  // Função para buscar usuários
+  async function fetchUsuarios() {
+    try {
+      const response = await fetch(API_URL);
+      if (!response.ok) throw new Error('Erro ao buscar usuários.');
+
+      const usuarios = await response.json();
+
+      // Renderiza os usuários no HTML
+      renderUsuarios(usuarios);
+    } catch (error) {
+      console.error('Erro:', error);
+    }
+  }
+
+  // Função para renderizar os usuários na tabela
+  function renderUsuarios(usuarios) {
+    const userTable = document.getElementById('user-table');
+    userTable.innerHTML = ''; // Limpa a tabela antes de renderizar
+
+    usuarios.forEach(usuario => {
+      const userRow = document.createElement('div');
+      userRow.classList.add('user-row');
+
+      userRow.innerHTML = `
+        <span>${usuario.name}</span>
+        <span class="status ativo">Ativo</span>
+        <button onclick="alert('Usuário: ${usuario.name}')">Ver</button>
+      `;
+
+      userTable.appendChild(userRow);
+    });
+  }
+
+  // Chama a função ao carregar a página
+  document.addEventListener('DOMContentLoaded', fetchUsuarios);
+</script>
+
+
 </body>
 </html>
