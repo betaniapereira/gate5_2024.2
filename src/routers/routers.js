@@ -1,34 +1,29 @@
 const express = require('express');
 const router = express.Router();
-const UsersController = require('../controllers/UsersController'); 
+const UsersController = require('../controllers/UsersController');
 const AuthController = require('../controllers/AuthController');
-const cadastroRoutes = require('./CadastroRoutes');
-const verificarAutenticacao = require('../middleware/authMiddleware');  
+const CadastroRoutes = require('./CadastroRoutes'); // Importa as rotas de cadastro
+const verificarAutenticacao = require('../middleware/authMiddleware'); // Middleware para autenticação
 
 // Rota para criar um novo usuário
 router.post('/user', UsersController.create);
 
-// Rota para login 
+// Rota para login
 router.post('/login', AuthController.login);
 
 // Rota para solicitar recuperação de senha
-router.post('/password-reset/request', AuthController.requestPasswordReset); 
+router.post('/password-reset/request', AuthController.requestPasswordReset);
 
 // Rota para redefinir senha
-router.post('/password-reset', AuthController.resetPassword); 
+router.post('/password-reset', AuthController.resetPassword);
 
-// Rota para listar todos os usuários (protegida)
+// Rotas protegidas (exigem autenticação)
 router.get('/users', verificarAutenticacao, UsersController.listUsers);
-
-// Rota para listar um usuário específico pelo ID (protegida)
 router.get('/user/:id', verificarAutenticacao, UsersController.listUser);
-
-// Rota para atualizar um usuário específico pelo ID (protegida)
 router.put('/user/:id', verificarAutenticacao, UsersController.updateUser);
-
-// Rota para deletar um usuário específico pelo ID (protegida)
 router.delete('/user/:id', verificarAutenticacao, UsersController.deleteUser);
 
-router.use('/cadastro', cadastroRoutes);
+// Rotas relacionadas ao módulo de cadastro
+router.use('/cadastro', CadastroRoutes); // Prefixo /cadastro para as rotas relacionadas ao cadastro
 
 module.exports = router;

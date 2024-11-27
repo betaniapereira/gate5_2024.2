@@ -1,7 +1,10 @@
 const express = require('express');
+const CadastroController = require('../controllers/CadastroController'); // Certifique-se que está correto
+
 const router = express.Router();
-const CadastroController = require('../controllers/CadastroController.js');
 
-router.post('/', CadastroController.create);
+// Corrigido para chamar a função "create" que está no CadastroController
+router.post('/alunos', CadastroController.create); // Rota para adicionar um aluno (certifique-se que a função está correta no controller)
+router.get('/alunos', CadastroController.findAll); // Rota para listar todos os alunos (precisa de uma função findAll no controller)
 
-module.exports = router;
+module.exports = router; // Exporta o roteador
