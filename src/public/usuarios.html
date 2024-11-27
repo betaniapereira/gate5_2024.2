@@ -552,6 +552,7 @@ button:hover {
     <span>Settings</span>
   </div>
 </div>
+  <script> src="../models/Lista.js" </script>
   <script>
     const menuIcon = document.getElementById('menu-icon');
     const sidemenu = document.getElementById('sidemenu');
@@ -578,43 +579,40 @@ button:hover {
 
 // Array de objetos para os usuários
 
-const users = [
+const users = [{ name: "NOME", status: "ativo" },];
 
-      { name: "NOME", status: "ativo" },
-    ];
+console.log(users);
 
-    console.log(users);
+// Função para renderizar os usuários na tabela
+function renderUserTable() {
+  const userTable = document.getElementById('user-table');
+  userTable.innerHTML = ''; // Limpa a tabela antes de adicionar
 
-    // Função para renderizar os usuários na tabela
-    function renderUserTable() {
-      const userTable = document.getElementById('user-table');
-      userTable.innerHTML = ''; // Limpa a tabela antes de adicionar
+  users.forEach(user => {
+    // Cria a linha da tabela para cada usuário
+    const row = document.createElement('div');
+    row.classList.add('user-row');
 
-      users.forEach(user => {
-        // Cria a linha da tabela para cada usuário
-        const row = document.createElement('div');
-        row.classList.add('user-row');
+    const statusClass = user.status === 'ativo' ? 'ativo' : 'inativo';
+    row.innerHTML = `
+      <span>${user.name}</span>
+      <span class="status ${statusClass}">${user.status}</span>
+      <button onclick="verDetalhes('${user.name}')">Ver</button>
+    `;
 
-        const statusClass = user.status === 'ativo' ? 'ativo' : 'inativo';
-        row.innerHTML = `
-          <span>${user.name}</span>
-          <span class="status ${statusClass}">${user.status}</span>
-          <button onclick="verDetalhes('${user.name}')">Ver</button>
-        `;
+    // Adiciona a linha à tabela
+    userTable.appendChild(row);
+  });
+}
 
-        // Adiciona a linha à tabela
-        userTable.appendChild(row);
-      });
-    }
+// Função de detalhe (exemplo de como poderia ser chamada)
+function verDetalhes(userName) {
+  alert(`Detalhes do usuário: ${userName}`);
+}
 
-    // Função de detalhe (exemplo de como poderia ser chamada)
-    function verDetalhes(userName) {
-      alert(`Detalhes do usuário: ${userName}`);
-    }
-
-    // Chama a função para renderizar a tabela ao carregar a página
-    renderUserTable();
-    document.addEventListener("DOMContentLoaded", function () {
+// Chama a função para renderizar a tabela ao carregar a página
+renderUserTable();
+document.addEventListener("DOMContentLoaded", function () {
   const tabItems = document.querySelectorAll(".tab-item");
 
   tabItems.forEach(item => {
