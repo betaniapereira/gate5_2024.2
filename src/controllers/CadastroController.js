@@ -28,13 +28,13 @@ class CadastroController {
         }
     }
 
-    // Função para listar todos os userong
+    // Função para listar todos os usuario
     async findAll(req, res) {
         try {
-            const userong = await Cadastro.findAll(); // Supondo que você tenha um método findAll no seu modelo
-            return res.status(200).json(userong);
+            const usuario = await Cadastro.findAll(); // Supondo que você tenha um método findAll no seu modelo
+            return res.status(200).json(usuario);
         } catch (error) {
-            console.error('Erro ao listar userong:', error);
+            console.error('Erro ao listar usuario:', error);
             res.status(500).json({ message: 'Erro interno do servidor' });
         }
     }
