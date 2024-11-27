@@ -45,7 +45,7 @@ api.get('/', (req, res) => {
 
 // Rotas de autenticação
 api.post('/login', AuthController.login); // Rota para login
-api.post('/usuario', AuthController.usuario); // Rota para usuario
+api.post('/user', AuthController.usuario); // Rota para usuario
 api.post('/cadastro', AuthController.usuario); // Rota para cadastro
 api.post('/request-password-reset', AuthController.requestPasswordReset); // Solicitar redefinição de senha
 api.post('/reset-password', AuthController.resetPassword); // Redefinir senha

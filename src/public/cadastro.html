@@ -237,7 +237,7 @@ api.use('/api', router); // Rotas definidas no arquivo routers.js
         const formData = new FormData(event.target);
         const data = Object.fromEntries(formData.entries());
 
-        fetch('/api/responsavel', {
+        fetch('/api/user', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
