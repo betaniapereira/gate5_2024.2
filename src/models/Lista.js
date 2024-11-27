@@ -31,7 +31,7 @@ app.get('/usuarios', async (req, res) => {
     try {
         // Busca apenas os nomes da tabela cadastro
         const usuarios = await Usuario.findAll({
-            attributes: ['NOME'] // Só traz o campo 'nome'
+            attributes: ['name'] // Só traz o campo 'name'
         });
         res.json(usuarios); // Retorna os dados como JSON
     } catch (error) {
