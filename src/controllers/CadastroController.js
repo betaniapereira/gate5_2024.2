@@ -15,27 +15,37 @@ class CadastroController {
         } = req.body;
 
         try {
-            const status = await Cadastro.create(NOME, ANO, ENDERECO, FELIACAOPAI, FELIACAOMAE, RESPONSAVEL, TELEFONERESPONSAVEL, DATA_MODIFICACAO);
-            
-            if (status === 200) {
-                return res.status(200).json({ message: 'Cadastro criado com sucesso!' });
-            } else {
-                return res.status(400).json({ message: 'Erro ao criar cadastro.' });
-            }
+            // Insere os dados no banco de dados
+            const novoCadastro = await Cadastro.create({
+                NOME,
+                ANO,
+                ENDERECO,
+                FELIACAOPAI,
+                FELIACAOMAE,
+                RESPONSAVEL,
+                TELEFONERESPONSAVEL,
+                DATA_MODIFICACAO
+            });
+
+            // Resposta de sucesso
+            return res.status(201).json({ 
+                message: 'Cadastro criado com sucesso!', 
+                cadastro: novoCadastro 
+            });
         } catch (error) {
             console.error('Erro ao criar cadastro:', error);
-            res.status(500).json({ message: 'Erro interno do servidor' });
+            return res.status(500).json({ message: 'Erro interno do servidor.' });
         }
     }
 
-    // Função para listar todos os usuario
+    // Função para listar todos os usuários
     async findAll(req, res) {
         try {
-            const usuario = await Cadastro.findAll(); // Supondo que você tenha um método findAll no seu modelo
-            return res.status(200).json(usuario);
+            const usuarios = await Cadastro.findAll(); // Recupera todos os cadastros
+            return res.status(200).json(usuarios);
         } catch (error) {
-            console.error('Erro ao listar usuario:', error);
-            res.status(500).json({ message: 'Erro interno do servidor' });
+            console.error('Erro ao listar usuários:', error);
+            return res.status(500).json({ message: 'Erro interno do servidor.' });
         }
     }
 }
