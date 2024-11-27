@@ -1,5 +1,4 @@
 const knex = require('../data/conection');
-const bcrypt = require('bcrypt');
 
 class Cadastro {
     /**
