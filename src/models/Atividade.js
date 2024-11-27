@@ -1,6 +1,6 @@
 const knex = require('../data/conection');
 
-class atividade 
+class Atividade{
    async new(nome, descricao, data, userId) {
        try {
            await knex.insert({
@@ -18,17 +18,17 @@ class atividade
     }
 
     //async findByUserId(userId) {
-        try {
-            let atividades = await knex.select(['nome', 'descricao', 'data']).where({ userId: userId }).table('atividades');
-            if (atividades.length > 0) {
-                return atividades;
-            } else {
-                return undefined;
-            }
-        } catch (error) {
-            console.log(error);
-            return 404;
+    try {
+        let atividades = await knex.select(['nome', 'descricao', 'data']).where({ userId: userId }).table('atividades');
+        if (atividades.length > 0) {
+            return atividades;
+        } else {
+            return undefined;
         }
-
+    } catch (error) {
+        console.log(error);
+        return 404;
+    }
+}
 
 module.exports = new Atividade();

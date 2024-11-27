@@ -33,7 +33,7 @@ class User {
             return 404;
         }
     }
-
+    
     async findByEmail(email) {
         try {
             let user = await knex.select(['id', 'name', 'email', 'password', 'role']).where({ email: email }).table('users');
@@ -47,7 +47,7 @@ class User {
             return undefined;
         }
     }
-
+    
     async updatePassword(id, newPassword) {
         try {
             const hashedPassword = await bcrypt.hash(newPassword, 10);
