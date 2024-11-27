@@ -1,6 +1,6 @@
 const knex = require('../data/conection');
 
-class atividade {
+class atividade 
    async new(nome, descricao, data, userId) {
        try {
            await knex.insert({
@@ -29,7 +29,6 @@ class atividade {
             console.log(error);
             return 404;
         }
-    }
-}
+
 
 module.exports = new Atividade();

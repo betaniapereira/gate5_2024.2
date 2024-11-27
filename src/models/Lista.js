@@ -3,7 +3,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 
 // Conexão com o banco de dados na AWS
 const sequelize = new Sequelize('bd_agradef1', 'username', 'password', {
-    host: 'seu-endereco-do-banco.rds.amazonaws.com',
+    host: 'database-1.cx62ckqm21za.us-east-2.rds.amazonaws.com',
     dialect: 'mysql',
 });
 
