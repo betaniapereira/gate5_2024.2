@@ -1,48 +1,61 @@
-require('dotenv').config();
+require('dotenv').config(); // Carregar variáveis de ambiente do .env
+
 const express = require('express');
 const cors = require('cors');
-const router = require('./routers/routers'); // Suas outras rotas
-const AuthController = require('./controllers/AuthController'); // Importe o AuthController
-const path = require("path")
+const path = require('path');
+const router = require('./routers/routers'); // Importar rotas principais
+const AuthController = require('./controllers/AuthController'); // Importar AuthController
 
 const api = express();
 
+// Servir arquivos estáticos da pasta 'public'
 api.use(express.static(path.join(__dirname, 'public')));
 
-api.use(express.json())
+// Permitir o uso de JSON no corpo das requisições
+api.use(express.json());
 
-// Configurar CORS para permitir a origem correta
-api.use(cors({
-    origin: '*', // Idealmente, especifique seu domínio de front-end aqui
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+// Configurar CORS para aceitar requisições de origens específicas
+api.use(
+    cors({
+        origin: '*', // Substitua por um domínio confiável em produção
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Authorization'],
+    })
+);
 
-// Configurando Content-Type como UTF-8 e aplicando políticas de segurança
+// Configurar cabeçalhos adicionais para segurança e codificação UTF-8
 api.use((req, res, next) => {
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
     res.setHeader("Content-Security-Policy", "default-src 'self'; frame-ancestors 'self'");
     next();
 });
 
+// Rota inicial redirecionando para a página de login
 api.get('/', (req, res) => {
-    res.redirect('/login.html')
-})
+    res.redirect('/login.html');
+});
 
-// Rota de autenticação - Login
-api.post('/api/login', AuthController.login);
+// Rotas de autenticação
+api.post('/login', AuthController.login); // Rota para login
+api.post('/request-password-reset', AuthController.requestPasswordReset); // Solicitar redefinição de senha
+api.post('/reset-password', AuthController.resetPassword); // Redefinir senha
 
-// Rota de autenticação - Solicitação de redefinição de senha
-api.post('/api/request-password-reset', AuthController.requestPasswordReset);
+// Rotas principais
+api.use('/api', router); // Rotas definidas no arquivo routers.js
 
-// Rota de autenticação - Redefinir senha
-api.post('/api/reset-password', AuthController.resetPassword);
+// Rota de teste (opcional, para verificar o servidor)
+api.get('/test', (req, res) => {
+    res.status(200).json({ message: 'Servidor está funcionando!' });
+});
 
-// Usar as outras rotas
-api.use('/api', router); // Certifique-se de que o prefixo '/api' está correto para chamadas do front-end
+// Tratamento para rotas não encontradas
+api.use((req, res) => {
+    res.status(404).json({ message: 'Rota não encontrada.' });
+});
 
-// Iniciar o servidor na porta especificada no .env
+// Configuração de porta e inicialização do servidor
 const port = process.env.PORT || 4041;
 api.listen(port, () => {
-    console.log(`API RODANDO NA PORTA ${port}`);
+    console.log(`API rodando na porta ${port}`);
+    console.log(`Acesse em: http://localhost:${port}`);
 });
