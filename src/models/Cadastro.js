@@ -31,4 +31,4 @@ class Cadastro {
     }
 }
 
-module.exports = new cadastro;
+module.exports = new Cadastro();
