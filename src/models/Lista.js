@@ -12,10 +12,11 @@ const Usuario = sequelize.define('Usuario', {
     name: {
         type: DataTypes.STRING,
         allowNull: false,
+        field: 'NOME', // Nome real da coluna no banco
     }
 }, {
-    tableName: 'cadastro', // Nome da tabela no banco
-    timestamps: false       // Se a tabela não tiver campos de timestamp
+    tableName: 'cadastro',
+    timestamps: false
 });
 
 // Testando a conexão
@@ -30,7 +31,7 @@ app.get('/usuarios', async (req, res) => {
     try {
         // Busca apenas os nomes da tabela cadastro
         const usuarios = await Usuario.findAll({
-            attributes: ['name'] // Só traz o campo 'name'
+            attributes: ['NOME'] // Só traz o campo 'nome'
         });
         res.json(usuarios); // Retorna os dados como JSON
     } catch (error) {
