@@ -211,7 +211,7 @@ api.use('/api', router); // Rotas definidas no arquivo routers.js
         const formData = new FormData(event.target);
         const data = Object.fromEntries(formData.entries());
 
-        fetch('/api/usuario', {
+        fetch('/api/cadastro', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
