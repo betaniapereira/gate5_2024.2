@@ -63,9 +63,12 @@ api.use((req, res) => {
     res.status(404).json({ message: 'Rota não encontrada.' });
 });
 
+
+
 // Configuração de porta e inicialização do servidor
 const port = process.env.PORT || 4041;
 api.listen(port, () => {
+    console.log(`Teste funcionando');
     console.log(`API rodando na porta ${port}`);
-    console.log(`Acesse em: http://localhost:${port}`);
+    console.log(`Acesse em: ec2-3-21-237-200.us-east-2.compute.amazonaws.com`);
 });

@@ -1,21 +1,9 @@
 const knex = require('../data/conection');
 
 class Cadastro {
-    /**
-     * insere o cadastro no banco de dados.
-     * @param {string} NOME - Nome da pessoa.
-     * @param {string} ANO - Ano de nascimento.
-     * @param {string} ENDERECO - Endereço da pessoa.
-     * @param {string} FELIACAOPAI - Nome do pai.
-     * @param {string} FELIACAOMAE - Nome da mãe.
-     * @param {string} RESPONSAVEL - Nome do responsável.
-     * @param {string} TELEFONERESPONSAVEL - Telefone do responsável.
-     * @param {string} DATA_MODIFICACAO - Data de modificação do cadastro.
-     * @returns {number} Status da operação (200 para sucesso, 404 para falha).
-     */
     async create(NOME, ANO, ENDERECO, FELIACAOPAI, FELIACAOMAE, RESPONSAVEL, TELEFONERESPONSAVEL, DATA_MODIFICACAO) {
         try {
-            await knex.insert({
+            const [id] = await knex('cadastro').insert({
                 nome: NOME,
                 nascimento: ANO,
                 endereco: ENDERECO,
@@ -24,30 +12,49 @@ class Cadastro {
                 responsavel: RESPONSAVEL,
                 telefone: TELEFONERESPONSAVEL,
                 modificacao: DATA_MODIFICACAO
-            }).table('cadastro');
-
-            return 200;
+            });
+            return { id };
         } catch (error) {
-            console.error('Erro ao criar cadastro:', error);
-            return 404;
+            console.error('Erro ao criar cadastro:', error.message);
+            throw new Error('Erro ao criar cadastro.');
         }
     }
 
-    /**
-     * Busca um cadastro pelo ID.
-     * @param {number} idCADASTRO - ID do cadastro.
-     * @returns {object|null} Retorna o cadastro encontrado ou null.
-     */
     async findByUserId(idCADASTRO) {
         try {
-            const cadastro = await knex('cadastro').where({ id: idCADASTRO }).first();
-            if (cadastro) {
-                return cadastro;
-            }
-            return null;
+            return await knex('cadastro').where({ id: idCADASTRO }).first() || null;
         } catch (error) {
-            console.error('Erro ao buscar cadastro:', error);
-            return null;
+            console.error('Erro ao buscar cadastro:', error.message);
+            throw new Error('Erro ao buscar cadastro.');
+        }
+    }
+
+    async findAll() {
+        try {
+            return await knex('cadastro').select('*');
+        } catch (error) {
+            console.error('Erro ao buscar cadastros:', error.message);
+            throw new Error('Erro ao buscar cadastros.');
+        }
+    }
+
+    async update(id, data) {
+        try {
+            const rowsAffected = await knex('cadastro').where({ id }).update(data);
+            return rowsAffected > 0;
+        } catch (error) {
+            console.error('Erro ao atualizar cadastro:', error.message);
+            throw new Error('Erro ao atualizar cadastro.');
+        }
+    }
+
+    async delete(id) {
+        try {
+            const rowsAffected = await knex('cadastro').where({ id }).del();
+            return rowsAffected > 0;
+        } catch (error) {
+            console.error('Erro ao excluir cadastro:', error.message);
+            throw new Error('Erro ao excluir cadastro.');
         }
     }
 }
