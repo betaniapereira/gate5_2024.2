@@ -553,7 +553,42 @@ button:hover {
   </div>
 </div>
 
-  
+<script>
+  const sequelize = new Sequelize('bd_agradef1', 'admin', 'bananasevada123', {
+    host: 'database-1.cx62ckqm21za.us-east-2.rds.amazonaws.com',
+    dialect: 'mysql',
+  });
+
+  // Definição do modelo de Usuário
+  const Usuario = sequelize.define('Usuario', {
+      name: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          field: 'NOME', // Nome real da coluna no banco
+      }
+  }, {
+      tableName: 'cadastro',
+      timestamps: false
+  });
+
+  // Testando a conexão
+  sequelize.authenticate()
+      .then(() => console.log('Conectado ao banco de dados com sucesso.'))
+      .catch(err => console.error('Erro ao conectar ao banco:', err));
+
+      try {
+        // Busca apenas os nomes da tabela cadastro
+        const usuarios = await Usuario.findAll({
+            attributes: ['name'] // Só traz o campo 'name'
+        });
+        res.json(usuarios); // Retorna os dados como JSON
+    } catch (error) {
+        console.error('Erro ao buscar usuários:', error);
+        res.status(500).json({ error: 'Erro ao buscar usuários.' });
+    }
+</script>
+
+
   <script>
     const menuIcon = document.getElementById('menu-icon');
     const sidemenu = document.getElementById('sidemenu');
@@ -652,83 +687,5 @@ const users = [
 
 
   </script>
-
-<script>
-  const sequelize = new Sequelize('bd_agradef1', 'admin', 'bananasevada123', {
-    host: 'database-1.cx62ckqm21za.us-east-2.rds.amazonaws.com',
-    dialect: 'mysql',
-  });
-
-  // Definição do modelo de Usuário
-  const Usuario = sequelize.define('Usuario', {
-      name: {
-          type: DataTypes.STRING,
-          allowNull: false,
-          field: 'NOME', // Nome real da coluna no banco
-      }
-  }, {
-      tableName: 'cadastro',
-      timestamps: false
-  });
-
-  // Testando a conexão
-  sequelize.authenticate()
-      .then(() => console.log('Conectado ao banco de dados com sucesso.'))
-      .catch(err => console.error('Erro ao conectar ao banco:', err));
-
-      try {
-        // Busca apenas os nomes da tabela cadastro
-        const usuarios = await Usuario.findAll({
-            attributes: ['name'] // Só traz o campo 'name'
-        });
-        res.json(usuarios); // Retorna os dados como JSON
-    } catch (error) {
-        console.error('Erro ao buscar usuários:', error);
-        res.status(500).json({ error: 'Erro ao buscar usuários.' });
-    }
-</script>
-<script>
-  // URL do endpoint no servidor Node.js
-  const API_URL = 'ec2-3-21-237-200.us-east-2.compute.amazonaws.com';
-
-  // Função para buscar usuários
-  async function fetchUsuarios() {
-    try {
-      const response = await fetch(API_URL);
-      //if (!response.ok) throw new Error('Erro ao buscar usuários.');
-
-      const usuarios = await response.json();
-
-      // Renderiza os usuários no HTML
-      renderUsuarios(usuarios);
-    } catch (error) {
-      console.error('Erro:', error);
-    }
-  }
-
-  // Função para renderizar os usuários na tabela
-  function renderUsuarios(usuarios) {
-    const userTable = document.getElementById('user-table');
-    userTable.innerHTML = ''; // Limpa a tabela antes de renderizar
-
-    usuarios.forEach(usuario => {
-      const userRow = document.createElement('div');
-      userRow.classList.add('user-row');
-
-      userRow.innerHTML = `
-        <span>${usuario.name}</span>
-        <span class="status ativo">Ativo</span>
-        <button onclick="alert('Usuário: ${usuario.name}')">Ver</button>
-      `;
-
-      userTable.appendChild(userRow);
-    });
-  }
-
-  // Chama a função ao carregar a página
-  document.addEventListener('DOMContentLoaded', fetchUsuarios);
-</script>
-
-
 </body>
 </html>
