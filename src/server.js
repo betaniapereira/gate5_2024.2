@@ -68,7 +68,6 @@ api.use((req, res) => {
 // Configuração de porta e inicialização do servidor
 const port = process.env.PORT || 4041;
 api.listen(port, () => {
-    console.log(`Teste funcionando');
     console.log(`API rodando na porta ${port}`);
     console.log(`Acesse em: ec2-3-21-237-200.us-east-2.compute.amazonaws.com`);
 });
