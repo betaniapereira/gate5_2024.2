@@ -1,4 +1,5 @@
 const knex = require('../data/conection');
+api.use(express.json());
 
 class Cadastro {
     async create(NOME, ANO, ENDERECO, FELIACAOPAI, FELIACAOMAE, RESPONSAVEL, TELEFONERESPONSAVEL, DATA_MODIFICACAO) {
