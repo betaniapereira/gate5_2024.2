@@ -1,19 +1,19 @@
-const jwt = require('jsonwebtoken'); // verfica se o token jwt é valido
+const jwt = require('jsonwebtoken'); // Verifica se o token JWT é válido
 
 function verificarAutenticacao(req, res, next) {
-    const token = req.headers['authorization'];
+    const token = req.headers['authorization']?.split(' ')[1]; // Extrai apenas o token
 
     if (!token) {
-        return res.status(401).json({ message: 'acesso negado token nao fornecido.' });
+        return res.status(401).json({ message: 'Acesso negado: token não fornecido.' });
     }
 
-    jwt.verify(token, 'chave_secreta', (err, decoded) => {
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) {
-            return res.status(401).json({ message: 'token invalido' });
+            return res.status(401).json({ message: 'Token inválido ou expirado.' });
         }
 
-        req.usuario = decoded;
-        next();
+        req.usuario = decoded; // Adiciona o usuário decodificado à requisição
+        next(); // Continua para o próximo middleware ou rota
     });
 }
 
