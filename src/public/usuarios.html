@@ -555,6 +555,7 @@ button:hover {
 
 <script>
   async function getAllUsers() {
+    const { Sequelize, DataTypes } = require('sequelize');
     const sequelize = new Sequelize('bd_agradef1', 'admin', 'bananasevada123', {
       host: 'database-1.cx62ckqm21za.us-east-2.rds.amazonaws.com',
       dialect: 'mysql',
