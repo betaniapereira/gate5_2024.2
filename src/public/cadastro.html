@@ -201,6 +201,9 @@
     </div>
 
     <script>
+
+api.use('/api', router); // Rotas definidas no arquivo routers.js
+
       // Função para enviar os dados do primeiro formulário
       document.getElementById('userForm').addEventListener('submit', function(event) {
         event.preventDefault();  // Previne o envio padrão do formulário
