@@ -140,7 +140,7 @@
       
           <h4>Dados da Conta</h4><br>
           
-          <form id="userForm">
+          <form id="userForm" onsubmit="event.preventDefault(); cadastroHandler();">
             <div class="input-group">
               <input type="text" id="name" name="name" placeholder="Nome Completo:" required />
             </div>
@@ -201,32 +201,33 @@
     </div>
 
     <script>
-      // Função para enviar os dados do primeiro formulário
-      document.getElementById('userForm').addEventListener('submit', function(event) {
-        event.preventDefault();  // Previne o envio padrão do formulário
 
-        const formData = new FormData(event.target);
-        const data = Object.fromEntries(formData.entries());
-        console.log("DATA");
-        console.log(data);
-        fetch('/api/cadastro', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log('Dados enviados:', data);
+      // Função para enviar os dados do primeiro formulário
+      async function cadastroHandler() {
+        event.preventDefault();  // Previne o envio padrão do formulário
+        
+        try{
+          const formData = new FormData(event.target);
+          const data = Object.fromEntries(formData.entries());
+          
+          const response = await fetch('/api/cadastro', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          });
+
+          const responseData = await response.json();
+
+          console.log('Dados enviados:', JSON.stringify(data));
           // Navegar para o próximo formulário
           document.getElementById('body1').style.display = 'none';
           document.getElementById('body2').style.display = 'block';
-        })
-        .catch((error) => {
+        }catch{(error) => {
           console.error('Erro:', error);
-        });
-      });
+        }};
+      };
 
       // Função para enviar os dados do segundo formulário
       document.getElementById('responsibleForm').addEventListener('submit', function(event) {

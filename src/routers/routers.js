@@ -27,5 +27,6 @@ router.delete('/user/:id', verificarAutenticacao, UsersController.deleteUser);
 
 // Rotas relacionadas ao módulo de cadastro
 router.get('/cadastro', naoVerificarAutenticacao, CadastroController.findAll);
+router.post('/cadastro', naoVerificarAutenticacao, CadastroController.create); // Rota para adicionar um aluno (certifique-se que a função está correta no controller)
 
 module.exports = router;

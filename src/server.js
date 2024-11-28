@@ -35,6 +35,9 @@ api.get('/', (req, res) => {
     res.redirect('/login.html');
 });
 
+//Rota para cadastro
+api.post('/cadastro', CadastroController.create); // Rota para login
+
 // Rotas de autenticação
 api.post('/login', AuthController.login); // Rota para login
 api.post('/request-password-reset', AuthController.requestPasswordReset); // Solicitar redefinição de senha
@@ -53,8 +56,6 @@ api.use((req, res) => {
     res.status(404).json({ message: 'Rota não encontrada.' });
 });
 
-//Rota para cadastro
-api.post('/cadastro', CadastroController.create); // Rota para login
 
 // Configuração de porta e inicialização do servidor
 const port = process.env.PORT || 4041;
