@@ -32,10 +32,9 @@ class CadastroController {
                 message: 'Cadastro criado com sucesso!', 
                 cadastro: novoCadastro 
             });
-            
+
         } catch (error) {
             console.error('Erro ao criar cadastro:', error);
-            print(req);
             return res.status(500).json({ message: 'Erro interno do servidor.' });
         }
     }

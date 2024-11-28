@@ -215,16 +215,7 @@
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-              "NOME": "Luis Gabriel",
-              "ANO": "2024",
-              "ENDERECO": "Rua X, 123",
-              "FELIACAOPAI": "Sim",
-              "FELIACAOMAE": "Não",
-              "RESPONSAVEL": "João da Silva",
-              "TELEFONERESPONSAVEL": "99999-9999",
-              "DATA_MODIFICACAO": "2024-11-27"
-            }),
+            body: JSON.stringify(data),
           });
 
           const responseData = await response.json();
