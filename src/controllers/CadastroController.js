@@ -32,6 +32,7 @@ class CadastroController {
                 message: 'Cadastro criado com sucesso!', 
                 cadastro: novoCadastro 
             });
+            
         } catch (error) {
             console.error('Erro ao criar cadastro:', error);
             print(req);
