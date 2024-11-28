@@ -3,6 +3,8 @@ const Cadastro = require('../models/Cadastro'); // Modelo de Cadastro
 class CadastroController {
     // Função para adicionar um novo aluno
     async create(req, res) {
+        console.log("ENVIEI: ");
+        console.log(req);
         const { 
             NOME, 
             ANO, 
@@ -13,7 +15,7 @@ class CadastroController {
             TELEFONERESPONSAVEL, 
             DATA_MODIFICACAO 
         } = req.body;
-        console.log(req.body);
+
         try {
             // Insere os dados no banco de dados
             const novoCadastro = await Cadastro.create({
@@ -34,7 +36,7 @@ class CadastroController {
             });
         } catch (error) {
             console.error('Erro ao criar cadastro:', error);
-            return res.status(500).json({ message: error });
+            return res.status(500).json({ message: 'Erro interno do servidor.' });
         }
     }
 
