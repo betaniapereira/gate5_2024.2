@@ -40,10 +40,9 @@ api.post('/login', AuthController.login); // Rota para login
 api.post('/request-password-reset', AuthController.requestPasswordReset); // Solicitar redefinição de senha
 api.post('/reset-password', AuthController.resetPassword); // Redefinir senha
 
-
 //Rota para cadastro
 api.post('/cadastro', CadastroController.create); // Rota para criar cadastro
-api.get('/cadastro', CadastroController.findAll); // Rota para listar cadastros
+//api.get('/cadastro', CadastroController.findAll); // Rota para listar cadastros
 
 // Rotas principais
 api.use('/api', router); // Rotas definidas no arquivo routers.js
@@ -57,7 +56,6 @@ api.get('/test', (req, res) => {
 api.use((req, res) => {
     res.status(404).json({ message: 'Rota não encontrada.' });
 });
-
 
 // Configuração de porta e inicialização do servidor
 const port = process.env.PORT || 4041;

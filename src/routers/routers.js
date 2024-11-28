@@ -15,6 +15,10 @@ router.post('/login', AuthController.login);
 // Rota para solicitar recuperação de senha
 router.post('/password-reset/request', AuthController.requestPasswordReset);
 
+// Rotas relacionadas ao módulo de cadastro
+//router.get('/cadastro', naoVerificarAutenticacao, CadastroController.findAll);
+router.post('/cadastro', naoVerificarAutenticacao, CadastroController.create); // Rota para adicionar um aluno (certifique-se que a função está correta no controller)
+
 // Rota para redefinir senha
 router.post('/password-reset', AuthController.resetPassword);
 
@@ -24,8 +28,5 @@ router.get('/user/:id', verificarAutenticacao, UsersController.listUser);
 router.put('/user/:id', verificarAutenticacao, UsersController.updateUser);
 router.delete('/user/:id', verificarAutenticacao, UsersController.deleteUser);
 
-// Rotas relacionadas ao módulo de cadastro
-router.get('/cadastro', CadastroController.findAll);
-router.post('/cadastro', CadastroController.create); // Rota para adicionar um aluno (certifique-se que a função está correta no controller)
 
 module.exports = router;
