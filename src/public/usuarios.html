@@ -607,6 +607,7 @@
         },
       });
       const data = await response.json();
+      console.log(data)
       data.forEach((userData) => {
         users.push({
           name: JSON.parse(userData.NOME).name,
