@@ -578,7 +578,7 @@ button:hover {
 
 // Array de objetos para os usuários
 
-const users = [{ name: "NOME", status: "ativo" },];
+const users = [];
 
 console.log(users);
 
@@ -591,6 +591,7 @@ async function renderUserTable() {
                 },
               });
         const data = await response.json();
+        console.log (data);
   const userTable = document.getElementById('user-table');
   userTable.innerHTML = ''; // Limpa a tabela antes de adicionar
 
