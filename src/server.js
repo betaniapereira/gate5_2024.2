@@ -53,7 +53,6 @@ api.use((req, res) => {
     res.status(404).json({ message: 'Rota não encontrada.' });
 });
 
-
 //Rota para cadastro
 api.post('/cadastro', CadastroController.create); // Rota para login
 
