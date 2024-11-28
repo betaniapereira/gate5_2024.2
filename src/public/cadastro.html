@@ -241,7 +241,7 @@
             }).then(async (response)=>{
               
               let data = await response.json();
-
+              console.log(data)
               if(data.status === 200 || data.status === 201){
 
                 alert("Usuário cadastrado com sucesso!");
