@@ -584,7 +584,14 @@ const users = [{ name: NOME, status: "ativo" },];
 console.log(users);
 
 // Função para renderizar os usuários na tabela
-function renderUserTable() {
+async function renderUserTable() {
+        const response = await fetch('/api/cadastro',{
+                method: 'GET',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+              });
+        const data = await response.json();
   const userTable = document.getElementById('user-table');
   userTable.innerHTML = ''; // Limpa a tabela antes de adicionar
 
