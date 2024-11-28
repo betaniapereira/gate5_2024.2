@@ -34,7 +34,7 @@ class CadastroController {
             });
         } catch (error) {
             console.error('Erro ao criar cadastro:', error);
-            return res.status(500).json({ message: 'Erro interno do servidor.' });
+            return res.status(500).json({ message: 'Erro internovv do servidor.' });
         }
     }
 
