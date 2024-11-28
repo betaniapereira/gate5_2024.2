@@ -41,6 +41,9 @@ api.post('/request-password-reset', AuthController.requestPasswordReset); // Sol
 api.post('/reset-password', AuthController.resetPassword); // Redefinir senha
 
 
+//Rota para cadastro
+api.post('/cadastro', CadastroController.create); // Rota para criar cadastro
+
 
 // Rotas principais
 api.use('/api', router); // Rotas definidas no arquivo routers.js
