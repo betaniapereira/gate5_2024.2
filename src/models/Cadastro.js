@@ -10,7 +10,7 @@ class Cadastro {
                 FILIACAOPAI: father,
                 FILIACAOMAE: mother,
                 RESPONSAVEL: responsable,
-                TELEFONERESPONSAVEL: phone,
+                TELEFONERESPONSAVEL: name,
                 DATA_MODIFICACAO: null
             });
             return { id };
