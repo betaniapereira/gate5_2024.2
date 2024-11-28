@@ -12,7 +12,8 @@
       box-sizing: border-box;
     }
 
-     body,html {
+    body,
+    html {
       font-family: Arial, sans-serif;
       background-color: #f3f4f6;
       display: flex;
@@ -122,7 +123,7 @@
     }
 
     /* Sidebar */
-    
+
     .sidemenu {
       position: fixed;
       top: 0;
@@ -182,25 +183,28 @@
         display: flex;
       }
     }
-     
-     /* Card */
-     .card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 240px; /* Diminua o tamanho do card em desktop */
-    max-height: 340px;
-    text-align: center;
-    position: relative;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    /* Card */
+    .card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 240px;
+      /* Diminua o tamanho do card em desktop */
+      max-height: 340px;
+      text-align: center;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
     .card:hover {
       transform: scale(1.09);
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
       z-index: 10;
-    } 
+    }
+
     .card h3 {
       font-size: 1.5rem;
       color: #333;
@@ -239,12 +243,15 @@
         width: 100%;
         max-width: 250px;
       }
+
       .card {
-        max-width: 300px; /* Aumenta o tamanho do card em dispositivos móveis */
+        max-width: 300px;
+        /* Aumenta o tamanho do card em dispositivos móveis */
+      }
     }
-    }
- /* Tab Bar */
- .tab-bar {
+
+    /* Tab Bar */
+    .tab-bar {
       position: fixed;
       bottom: 10px;
       left: 50%;
@@ -258,12 +265,13 @@
       align-items: center;
       border-radius: 30px;
       box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-      z-index: 999; /* Garantir que a tab bar não sobreponha o sidebar */
+      z-index: 999;
+      /* Garantir que a tab bar não sobreponha o sidebar */
       transition: transform 0.3s ease;
     }
 
     .tab-bar.hidden {
-     display: none;
+      display: none;
     }
 
     .tab-item {
@@ -309,106 +317,111 @@
       color: #3a6df0;
     }
 
-   
+
     .container {
-    margin: 70px auto;
-    width: 100%;
-    max-width: 600px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+      margin: 70px auto;
+      width: 100%;
+      max-width: 600px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-}
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
 
-.user-table {
-    width: 100%;
-}
+    .user-table {
+      width: 100%;
+    }
 
-.user-header, .user-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-    align-items: center;
-}
+    .user-header,
+    .user-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      align-items: center;
+    }
 
-.user-header {
-    font-weight: bold;
-    color: #666;
-}
+    .user-header {
+      font-weight: bold;
+      color: #666;
+    }
 
-.user-row {
-    color: #333;
-    transition: background-color 0.3s;
-}
+    .user-row {
+      color: #333;
+      transition: background-color 0.3s;
+    }
 
-.user-row:hover {
-    background-color: #f1f1f1;
-}
+    .user-row:hover {
+      background-color: #f1f1f1;
+    }
 
-.status {
-    font-size: 0.9em;
-    padding: 5px 10px;
-    border-radius: 12px;
-    text-align: center;
-    width: 65px;
-}
+    .status {
+      font-size: 0.9em;
+      padding: 5px 10px;
+      border-radius: 12px;
+      text-align: center;
+      width: 65px;
+    }
 
-.status.ativo {
-    color: #28a745;
-    background-color: #e6f4ea;
-}
+    .status.ativo {
+      color: #28a745;
+      background-color: #e6f4ea;
+    }
 
-.status.inativo {
-    color: #dc3545;
-    background-color: #f8e2e4;
-}
+    .status.inativo {
+      color: #dc3545;
+      background-color: #f8e2e4;
+    }
 
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 65px;
-  
-    transition: background-color 0.3s;
-}
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 65px;
 
-button:hover {
-    background-color: #0056b3;
-}
+      transition: background-color 0.3s;
+    }
 
-/* Ajuste para dispositivos móveis */
-@media (max-width: 600px) {
-    .user-item {
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Ajuste para dispositivos móveis */
+    @media (max-width: 600px) {
+      .user-item {
         flex-direction: column;
         align-items: flex-start;
-    }
+      }
 
-    .user-status,
-    .action-button {
-        align-self: flex-end; /* Alinha o status e o botão à direita */
+      .user-status,
+      .action-button {
+        align-self: flex-end;
+        /* Alinha o status e o botão à direita */
         margin-top: 5px;
 
-    }
+      }
 
-    /* Alinhamento na mesma linha */
-    .user-status {
+      /* Alinhamento na mesma linha */
+      .user-status {
         display: inline;
-        color: #007bff; /* Ajuste de cor opcional */
-        font-weight: bold; /* Negrito opcional */
+        color: #007bff;
+        /* Ajuste de cor opcional */
+        font-weight: bold;
+        /* Negrito opcional */
+      }
     }
-}
   </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
@@ -425,7 +438,8 @@ button:hover {
     <div class="header-profile">
       <button class="logout-button" id="close-button">
         <svg viewBox="0 0 512 512">
-          <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9z"/>
+          <path
+            d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9z" />
         </svg>
         <div class="tooltip">Sair</div>
       </button>
@@ -438,20 +452,20 @@ button:hover {
     <ul>
       <li>
         <svg viewBox="0 0 24 24">
-          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/>
+          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" />
         </svg>
         <a href="configuracao.html" style="text-decoration: none;"><span>Configurações</span></a>
       </li>
       <li>
         <svg viewBox="0 0 24 24">
-          <path d="M21 7H3v10h18V7z"/>
+          <path d="M21 7H3v10h18V7z" />
         </svg>
-      <span>Notificações</span>
+        <span>Notificações</span>
       </li>
       <li>
-        
+
         <svg viewBox="0 0 24 24">
-          <path d="M17 16l4-4-4-4v3H3v2h14v3z"/>
+          <path d="M17 16l4-4-4-4v3H3v2h14v3z" />
         </svg>
         <span>Sair</span>
       </li>
@@ -485,8 +499,8 @@ button:hover {
       <!-- As linhas de usuários serão geradas dinamicamente aqui -->
     </div>
   </div>
-    <!-- Container Principal -->
-    <!-- <div class="container">
+  <!-- Container Principal -->
+  <!-- <div class="container">
         <h1>Lista de Usuários</h1>
         <div class="user-table">
             <div class="user-header">
@@ -519,39 +533,41 @@ button:hover {
                 <span class="status inativo">Inativo</span>
                 <button onclick="verDetalhes()">Ver</button>
             </div> -->
-            <!-- Adicione mais usuários aqui -->
-     <!--    </div>
+  <!-- Adicione mais usuários aqui -->
+  <!--    </div>
     </div> -->
 
-    
 
-<!-- Tab Bar -->
-<div class="tab-bar" id="tab-bar">
-  <div class="tab-item active" data-tab="home">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-    </svg>
-    <span>Home</span>
+
+  <!-- Tab Bar -->
+  <div class="tab-bar" id="tab-bar">
+    <div class="tab-item active" data-tab="home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+      </svg>
+      <span>Home</span>
+    </div>
+    <div class="tab-item" data-tab="user">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+      </svg>
+      <span>User</span>
+    </div>
+    <div class="tab-item" data-tab="form">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 3h18v2H3V3zm0 4h18v2H3V7zm0 4h18v2H3v-2zm0 4h18v2H3v-2zm0 4h18v2H3v-2z" />
+      </svg>
+      <span>Form</span>
+    </div>
+    <div class="tab-item" data-tab="settings">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M19.14 12.936a7.992 7.992 0 0 0 0-1.872l2.036-1.572a1 1 0 0 0-1.22-1.572l-2.036 1.572a7.992 7.992 0 0 0-1.872 0l-1.572-2.036a1 1 0 0 0-1.572 1.22l1.572 2.036a7.992 7.992 0 0 0 0 1.872l-1.572 2.036a1 1 0 0 0 1.572 1.22l1.572-2.036a7.992 7.992 0 0 0 1.872 0l2.036 1.572a1 1 0 0 0 1.22-1.572l-2.036-1.572z" />
+      </svg>
+      <span>Settings</span>
+    </div>
   </div>
-  <div class="tab-item" data-tab="user">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-    </svg>
-    <span>User</span>
-  </div>
-  <div class="tab-item" data-tab="form">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M3 3h18v2H3V3zm0 4h18v2H3V7zm0 4h18v2H3v-2zm0 4h18v2H3v-2zm0 4h18v2H3v-2z"/>
-    </svg>
-    <span>Form</span>
-  </div>
-  <div class="tab-item" data-tab="settings">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M19.14 12.936a7.992 7.992 0 0 0 0-1.872l2.036-1.572a1 1 0 0 0-1.22-1.572l-2.036 1.572a7.992 7.992 0 0 0-1.872 0l-1.572-2.036a1 1 0 0 0-1.572 1.22l1.572 2.036a7.992 7.992 0 0 0 0 1.872l-1.572 2.036a1 1 0 0 0 1.572 1.22l1.572-2.036a7.992 7.992 0 0 0 1.872 0l2.036 1.572a1 1 0 0 0 1.22-1.572l-2.036-1.572z"/>
-    </svg>
-    <span>Settings</span>
-  </div>
-</div>
   <script>
     const menuIcon = document.getElementById('menu-icon');
     const sidemenu = document.getElementById('sidemenu');
@@ -576,84 +592,90 @@ button:hover {
       tabBar.classList.remove('hidden');
     });
 
-// Array de objetos para os usuários
+    // Array de objetos para os usuários
 
-const users = [];
+    const users = [];
 
-console.log(users);
+    console.log(users);
 
-// Função para renderizar os usuários na tabela
-async function renderUserTable() {
-        const response = await fetch('/api/cadastro',{
-                method: 'GET',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-              });
-        const data = await response.json();
-        console.log (data);
-  const userTable = document.getElementById('user-table');
-  userTable.innerHTML = ''; // Limpa a tabela antes de adicionar
+    // Função para renderizar os usuários na tabela
+    async function renderUserTable() {
+      const response = await fetch('/api/cadastro', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      });
+      const data = await response.json();
+      data.forEach((userData) => {
+        users.push({
+          name: userData.NOME,
+          status: 'ativo'
+        })
+      })
+      const userTable = document.getElementById('user-table');
+      userTable.innerHTML = ''; // Limpa a tabela antes de adicionar
 
-  users.forEach(user => {
-    // Cria a linha da tabela para cada usuário
-    const row = document.createElement('div');
-    row.classList.add('user-row');
+      users.forEach(user => {
+        // Cria a linha da tabela para cada usuário
+        const row = document.createElement('div');
+        row.classList.add('user-row');
 
-    const statusClass = user.status === 'ativo' ? 'ativo' : 'inativo';
-    row.innerHTML = `
+        const statusClass = user.status === 'ativo' ? 'ativo' : 'inativo';
+        row.innerHTML = `
       <span>${user.name}</span>
       <span class="status ${statusClass}">${user.status}</span>
       <button onclick="verDetalhes('${user.name}')">Ver</button>
     `;
 
-    // Adiciona a linha à tabela
-    userTable.appendChild(row);
-  });
-}
+        // Adiciona a linha à tabela
+        userTable.appendChild(row);
+      });
+    }
 
-// Função de detalhe (exemplo de como poderia ser chamada)
-function verDetalhes(userName) {
-  alert(`Detalhes do usuário: ${userName}`);
-}
+    // Função de detalhe (exemplo de como poderia ser chamada)
+    function verDetalhes(userName) {
+      alert(`Detalhes do usuário: ${userName}`);
+    }
 
-// Chama a função para renderizar a tabela ao carregar a página
-document.addEventListener("DOMContentLoaded", function () {
-  renderUserTable();
-  const tabItems = document.querySelectorAll(".tab-item");
+    // Chama a função para renderizar a tabela ao carregar a página
+    document.addEventListener("DOMContentLoaded", function () {
+      renderUserTable();
+      const tabItems = document.querySelectorAll(".tab-item");
 
-  tabItems.forEach(item => {
-    item.addEventListener("click", function () {
-      // Remover a classe "active" de todas as tabs
-      tabItems.forEach(tab => tab.classList.remove("active"));
+      tabItems.forEach(item => {
+        item.addEventListener("click", function () {
+          // Remover a classe "active" de todas as tabs
+          tabItems.forEach(tab => tab.classList.remove("active"));
 
-      // Adicionar a classe "active" na tab clicada
-      item.classList.add("active");
+          // Adicionar a classe "active" na tab clicada
+          item.classList.add("active");
 
-      // Redirecionar para a página correspondente
-      const tabName = item.getAttribute("data-tab");
+          // Redirecionar para a página correspondente
+          const tabName = item.getAttribute("data-tab");
 
-      switch (tabName) {
-        case "home":
-          window.location.href = "telamenu.html";
-          break;
-        case "user":
-          window.location.href = "usuarios.html";
-          break;
-        case "form":
-          window.location.href = "cadastro.html";
-          break;
-        case "settings":
-          window.location.href = "configuracao.html";
-          break;
-        default:
-          break;
-      }
+          switch (tabName) {
+            case "home":
+              window.location.href = "telamenu.html";
+              break;
+            case "user":
+              window.location.href = "usuarios.html";
+              break;
+            case "form":
+              window.location.href = "cadastro.html";
+              break;
+            case "settings":
+              window.location.href = "configuracao.html";
+              break;
+            default:
+              break;
+          }
+        });
+      });
     });
-  });
-});
 
 
   </script>
 </body>
+
 </html>
