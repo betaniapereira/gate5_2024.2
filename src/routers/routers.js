@@ -16,7 +16,7 @@ router.post('/login', AuthController.login);
 router.post('/password-reset/request', AuthController.requestPasswordReset);
 
 // Rotas relacionadas ao módulo de cadastro
-//router.get('/cadastro', naoVerificarAutenticacao, CadastroController.findAll);
+router.get('/cadastro', naoVerificarAutenticacao, CadastroController.findAll);
 router.post('/cadastro', naoVerificarAutenticacao, CadastroController.create); // Rota para adicionar um aluno (certifique-se que a função está correta no controller)
 
 // Rota para redefinir senha

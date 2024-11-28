@@ -42,7 +42,7 @@ api.post('/reset-password', AuthController.resetPassword); // Redefinir senha
 
 //Rota para cadastro
 api.post('/cadastro', CadastroController.create); // Rota para criar cadastro
-//api.get('/cadastro', CadastroController.findAll); // Rota para listar cadastros
+api.get('/cadastro', CadastroController.findAll); // Rota para listar cadastros
 
 // Rotas principais
 api.use('/api', router); // Rotas definidas no arquivo routers.js
