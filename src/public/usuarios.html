@@ -609,7 +609,7 @@
       const data = await response.json();
       data.forEach((userData) => {
         users.push({
-          name: userData.name,
+          name: userData.NOME,
           status: 'ativo'
         })
       })
