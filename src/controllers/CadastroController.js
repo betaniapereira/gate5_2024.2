@@ -7,8 +7,8 @@ class CadastroController {
             NOME, 
             ANO, 
             ENDERECO, 
-            FELIACAOPAI, 
-            FELIACAOMAE, 
+            FILIACAOPAI, 
+            FILIACAOMAE, 
             RESPONSAVEL, 
             TELEFONERESPONSAVEL, 
             DATA_MODIFICACAO 
@@ -20,8 +20,8 @@ class CadastroController {
                 NOME,
                 ANO,
                 ENDERECO,
-                FELIACAOPAI,
-                FELIACAOMAE,
+                FILIACAOPAI,
+                FILIACAOMAE,
                 RESPONSAVEL,
                 TELEFONERESPONSAVEL,
                 DATA_MODIFICACAO

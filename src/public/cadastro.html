@@ -180,7 +180,7 @@
           
           <label style="color: black;">Informações Adicionais</label><br>
 
-          <form id="responsibleForm">
+          <form id="responsibleForm" onsubmit="event.preventDefault(); cadastroHandler2();">
             <div class="input-group">
               <input type="text" id="responsavel" name="responsavel" placeholder="Nome do Responsável:" required />
             </div>
@@ -201,65 +201,60 @@
     </div>
 
     <script>
-
       // Função para enviar os dados do primeiro formulário
+      var dataSend;
+
       async function cadastroHandler() {
         event.preventDefault();  // Previne o envio padrão do formulário
         
         try{
           const formData = new FormData(event.target);
           const data = Object.fromEntries(formData.entries());
-          
-          console.log(JSON.stringify(data));
-          
-          const response = await fetch('/api/cadastro', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',  
-            },
-            body: JSON.stringify(data),
-          });
+          dataSend = data
 
-          const responseData = await response.json();
-
-          console.log('Dados enviados:', JSON.stringify(data));
-          // Navegar para o próximo formulário
           document.getElementById('body1').style.display = 'none';
           document.getElementById('body2').style.display = 'block';
         }catch{(error) => {
+
           console.error('Erro:', error);
+
         }};
       };
 
-      // Função para enviar os dados do segundo formulário
-      document.getElementById('responsibleForm').addEventListener('submit', function(event) {
-        event.preventDefault();  // Previne o envio padrão do formulário
 
-        const formData = new FormData(event.target);
-        const data = Object.fromEntries(formData.entries());
+      async function cadastroHandler2() {
+        // Função para enviar os dados do segundo formulário
+          event.preventDefault();  // Previne o envio padrão do formulário
+          
+          try{
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            Object.assign(dataSend, data);
+            console.log(JSON.stringify(dataSend));
 
-        fetch('/api/user', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log('Dados enviados:', data);
-          // Pode exibir uma mensagem ou redirecionar o usuário
-        })
-        .catch((error) => {
-          console.error('Erro:', error);
-        });
-      });
+            const response = await fetch('/api/cadastro', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',  
+                },
+                body: JSON.stringify(dataSend),
+            });
 
-      // Função para ir para o próximo formulário (exemplo)
-      function goToNextForm() {
-        document.getElementById('body2').style.display = 'none';
-        //document.getElementById('body3').style.display = 'block';
-      }
+            const responseData = await response.json();
+
+            function goToNextForm() {
+              document.getElementById('body2').style.display = 'none';
+              //document.getElementById('body3').style.display = 'block';
+            }
+
+          }catch{(error) => {
+              console.error('Erro:', error);
+              
+          }}
+
+      };
+    
+
     </script>
 </body>
 </html>

@@ -1,14 +1,14 @@
 const knex = require('../data/conection');
 
 class Cadastro {
-    async create(NOME, ANO, ENDERECO, FELIACAOPAI, FELIACAOMAE, RESPONSAVEL, TELEFONERESPONSAVEL, DATA_MODIFICACAO) {
+    async create(NOME, ANO, ENDERECO, FILIACAOPAI, FILIACAOMAE, RESPONSAVEL, TELEFONERESPONSAVEL, DATA_MODIFICACAO) {
         try {
             const [id] = await knex('cadastro').insert({
                 NOME: NOME,
                 ANO: ANO,
                 ENDERECO: ENDERECO,
-                FILIACAOPAI: FELIACAOPAI,
-                FILIACAOMAE: FELIACAOMAE,
+                FILIACAOPAI: FILIACAOPAI,
+                FILIACAOMAE: FILIACAOMAE,
                 RESPONSAVEL: RESPONSAVEL,
                 TELEFONERESPONSAVEL: TELEFONERESPONSAVEL,
                 DATA_MODIFICACAO: DATA_MODIFICACAO
