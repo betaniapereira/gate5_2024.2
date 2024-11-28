@@ -4,7 +4,6 @@ class Cadastro {
     async create(name, birthdate, address, father, mother, responsable, phone) {
         try {
             const [id] = await knex('cadastro').insert({
-                idCADASTRO: null,
                 NOME: name,
                 ANO: birthdate,
                 ENDERECO: address,
