@@ -12,7 +12,7 @@ class Cadastro {
                 FILIACAOMAE: mother,
                 RESPONSAVEL: responsable,
                 TELEFONERESPONSAVEL: phone,
-                DATA_MODIFICACAO: null
+                DATA_MODIFICACAO: new Date()
             });
             return { id };
         } catch (error) {
