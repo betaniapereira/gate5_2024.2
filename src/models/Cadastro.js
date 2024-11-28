@@ -4,14 +4,14 @@ class Cadastro {
     async create(NOME, ANO, ENDERECO, FELIACAOPAI, FELIACAOMAE, RESPONSAVEL, TELEFONERESPONSAVEL, DATA_MODIFICACAO) {
         try {
             const [id] = await knex('cadastro').insert({
-                nome: NOME,
-                nascimento: ANO,
-                endereco: ENDERECO,
-                pai: FELIACAOPAI,
-                mae: FELIACAOMAE,
-                responsavel: RESPONSAVEL,
-                telefone: TELEFONERESPONSAVEL,
-                modificacao: DATA_MODIFICACAO
+                NOME: NOME,
+                ANO: ANO,
+                ENDERECO: ENDERECO,
+                paFELIACAOPAIi: FELIACAOPAI,
+                FELIACAOMAE: FELIACAOMAE,
+                RESPONSAVEL: RESPONSAVEL,
+                TELEFONERESPONSAVEL: TELEFONERESPONSAVEL,
+                DATA_MODIFICACAO: DATA_MODIFICACAO
             });
             return { id };
         } catch (error) {
