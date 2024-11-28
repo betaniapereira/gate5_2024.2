@@ -25,7 +25,7 @@ router.put('/user/:id', verificarAutenticacao, UsersController.updateUser);
 router.delete('/user/:id', verificarAutenticacao, UsersController.deleteUser);
 
 // Rotas relacionadas ao módulo de cadastro
-router.get('/cadastro', verificarAutenticacao, CadastroController.findAll);
+router.get('/cadastro', null, CadastroController.findAll);
 
 
 module.exports = router;
