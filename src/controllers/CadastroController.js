@@ -3,8 +3,8 @@ const Cadastro = require('../models/Cadastro'); // Modelo de Cadastro
 class CadastroController {
     // Função para adicionar um novo aluno
     async create(req, res) {
-        console.log("ENVIEI: ");
-        console.log(req);
+        print("CHEGUEI AQ");
+        print(req);
         const { 
             NOME, 
             ANO, 
