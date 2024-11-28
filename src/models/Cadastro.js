@@ -7,8 +7,8 @@ class Cadastro {
                 NOME: NOME,
                 ANO: ANO,
                 ENDERECO: ENDERECO,
-                FELIACAOPAI: FELIACAOPAI,
-                FELIACAOMAE: FELIACAOMAE,
+                FILIACAOPAI: FELIACAOPAI,
+                FILIACAOMAE: FELIACAOMAE,
                 RESPONSAVEL: RESPONSAVEL,
                 TELEFONERESPONSAVEL: TELEFONERESPONSAVEL,
                 DATA_MODIFICACAO: DATA_MODIFICACAO
