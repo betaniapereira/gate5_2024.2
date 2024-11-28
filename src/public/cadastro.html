@@ -232,21 +232,28 @@
             Object.assign(dataSend, data);
             console.log(JSON.stringify(dataSend));
 
-            const response = await fetch('/api/cadastro', {
+            fetch('/api/cadastro', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',  
                 },
                 body: JSON.stringify(dataSend),
+            }).then(async (response)=>{
+              
+              let data = await response.json();
+
+              if(data.status === 200 || data.status === 201){
+
+                alert("Usuário cadastrado com sucesso!");
+
+              }
+            }).catch((error) =>{
+
+              console.log(error);
+
+
             });
-
-            const responseData = await response.json();
-
-            function goToNextForm() {
-              document.getElementById('body2').style.display = 'none';
-              //document.getElementById('body3').style.display = 'block';
-            }
-
+            
           }catch{(error) => {
               console.error('Erro:', error);
               
