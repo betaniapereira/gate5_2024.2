@@ -4,27 +4,26 @@ class CadastroController {
     // Função para adicionar um novo aluno
     async create(req, res) {
         const { 
-            NOME, 
-            ANO, 
-            ENDERECO, 
-            FILIACAOPAI, 
-            FILIACAOMAE, 
-            RESPONSAVEL, 
-            TELEFONERESPONSAVEL, 
+            name, 
+            birthdate, 
+            address, 
+            father, 
+            mother, 
+            responsable, 
+            phone, 
             DATA_MODIFICACAO 
         } = req.body;
 
         try {
             // Insere os dados no banco de dados
             const novoCadastro = await Cadastro.create({
-                NOME,
-                ANO,
-                ENDERECO,
-                FILIACAOPAI,
-                FILIACAOMAE,
-                RESPONSAVEL,
-                TELEFONERESPONSAVEL,
-                DATA_MODIFICACAO
+                name,
+                birthdate,
+                address,
+                father,
+                mother,
+                responsable,
+                phone,
             });
 
             // Resposta de sucesso

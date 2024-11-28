@@ -1,17 +1,17 @@
 const knex = require('../data/conection');
 
 class Cadastro {
-    async create(NOME, ANO, ENDERECO, FILIACAOPAI, FILIACAOMAE, RESPONSAVEL, TELEFONERESPONSAVEL, DATA_MODIFICACAO) {
+    async create(name, birthdate, address, father, mother, responsable, phone) {
         try {
             const [id] = await knex('cadastro').insert({
-                NOME: NOME,
-                ANO: ANO,
-                ENDERECO: ENDERECO,
-                FILIACAOPAI: FILIACAOPAI,
-                FILIACAOMAE: FILIACAOMAE,
-                RESPONSAVEL: RESPONSAVEL,
-                TELEFONERESPONSAVEL: TELEFONERESPONSAVEL,
-                DATA_MODIFICACAO: DATA_MODIFICACAO
+                NOME: name,
+                ANO: birthdate,
+                ENDERECO: address,
+                FILIACAOPAI: father,
+                FILIACAOMAE: mother,
+                RESPONSAVEL: responsable,
+                TELEFONERESPONSAVEL: phone,
+                DATA_MODIFICACAO: null
             });
             return { id };
         } catch (error) {
