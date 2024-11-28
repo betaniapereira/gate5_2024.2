@@ -5,6 +5,7 @@ const AuthController = require('../controllers/AuthController');
 const CadastroRoutes = require('./CadastroRoutes'); // Importa as rotas de cadastro
 const verificarAutenticacao = require('../middleware/authMiddleware'); // Middleware para autenticação
 const CadastroController = require('../controllers/CadastroController');
+const naoVerificarAutenticacao = require('../middleware/noAuthMiddle');
 
 // Rota para criar um novo usuário
 router.post('/user', UsersController.create);
@@ -25,7 +26,7 @@ router.put('/user/:id', verificarAutenticacao, UsersController.updateUser);
 router.delete('/user/:id', verificarAutenticacao, UsersController.deleteUser);
 
 // Rotas relacionadas ao módulo de cadastro
-router.get('/cadastro', null, CadastroController.findAll);
+router.get('/cadastro', naoVerificarAutenticacao, CadastroController.findAll);
 
 
 module.exports = router;
