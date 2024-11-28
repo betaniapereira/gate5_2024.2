@@ -5,7 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const router = require('./routers/routers'); // Importar rotas principais
 const AuthController = require('./controllers/AuthController'); // Importar AuthController
-
+const CadastroController = require('./controllers/CadastroController'); // Importar CadastroController
 const api = express();
 
 // Servir arquivos estáticos da pasta 'public'
@@ -54,6 +54,8 @@ api.use((req, res) => {
 });
 
 
+//Rota para cadastro
+api.post('/cadastro', CadastroController.create); // Rota para login
 
 // Configuração de porta e inicialização do servidor
 const port = process.env.PORT || 4041;

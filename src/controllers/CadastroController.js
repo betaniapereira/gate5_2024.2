@@ -13,7 +13,7 @@ class CadastroController {
             TELEFONERESPONSAVEL, 
             DATA_MODIFICACAO 
         } = req.body;
-
+        console.log(req.body);
         try {
             // Insere os dados no banco de dados
             const novoCadastro = await Cadastro.create({
